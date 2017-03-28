@@ -1,0 +1,77 @@
+For this assignment, only I looked at, or graded the work.
+
+I did it something like this :
+*) I put your work into one of a number of "bins" were the
+work seemed of a similar standard, taking into account extensions etc.
+*) I then gave each of these "bins" a mark.
+*) I went through each piece of work again, checking if it should move
+up/down to a different bin.
+*) Some comments (lines too long etc.) were generated automagically.
+*) I added some comments manually.
+
+Some of the negative comments have the following key :
+[ALLOC] Every malloc/calloc() needs to have a corresponding free().
+[C99] Code won't compile using the -ansi flag: often // comments or similar.
+[CAPDEFS] It's traditional make #define's in C using capitals #define MAX, not #define max. 
+[FOPEN] For every fopen() there should be an fclose().
+[FPRINTF] On exit/error, fprintf(stdeerr, ...) not via stdout & printf().
+[GLOB] Use of a global variable.
+[LINELEN] Line too long to read easily.
+[LONGFUNC] Function has too many lines to make it easily readable/understandable.
+[MAGICNUM] Use #defines, enums etc., rather than using magic numbers (e.g. if(x >= 39 is bad)
+[NESTING] Too many nested if/for/else etc to make the code easily understandable.
+kNOBRACE] if/else/for etc. with no brace.
+[WARNING WRONGLY DISABLED] You've deliberately disabled one of the compiler warnings !?
+[WARN] Warning produced by the gcc compiler.
+
+Some self-documentation e.g. an enumeration or typedef that I particularly enjoyed.
+[ENUMTYPEDEF]
+
+
+Marks correspond to the following bands:
+70%+ : Above what I was expecting at this stage in the unit
+60%+ : Good coding, putting into practice what we're lecturing.
+50%+ : Code is probably working, but doesn't follow house-style, or part 3/etension missing.
+
+
+Generally:
+*) Don't assume your executable is called "eighttile". Someone may have renamed it, or rebuilt it as something else. In any usage tips, use argv[0] instead.
+
+*) You need to pay real attention to the names of functions etc. - some are clearly misnamed. Look at them when you've finished & see if an additional comment would be helpful.
+
+*) Don't put in unnecessary comments e.g. /* The next line is main() */   It makes me think you
+don't know what is obvious to the reader & what is not ...
+
+*) Don't leave large chunks of code that you've used for debugging and then commented out - if you really want to, put a #ifdef DEBUG or similar around them.
+
+*) If you're using an external source for ideas (e.g. telling when a board is solvable or not), cite it in some way, inside the code.
+
+*) In this exercise, where speed is more of an issue, functions which compare two boards should stop comparing as soon as anything is different, and return 0. Many people simply set a flag and kept comparing, even though, by then it wasn't necessary.
+
+*) The use of ncurses was supposed to make the display of the solution nicer for the user - this was often not the case here - weird stripes and garish colours abounded :-) There's also an interest optical illusion whereby choosing the wrong colour makes it look like the *space* has moved, not a tile (maybe it's just me !?)
+
+*) Many people are #define-ing many error codes for exit on file failure, malloc failure etc. Seems like a perfect opportunity to enumerate them instead ?
+
+*) If you have a source file with an associated header file, it's normal to give them the same name e.g. eighttile.c eighttile.h
+
+*) Even when printing out the board with ncurses, you should still allow the user to abort early via some event - some people simply forced the user to sit through the entire thing, even if pressing ESC.
+
+*) Part three was to do with creating a dyanmic data structure (next poiinters etc.) Some people used realloc() (which I haven't lectured) to simply resize a 1D array. This is not the same. You've no reason to use realloc().
+
+
+
+
+Comments for you
+----------------
+
+
+Feedback, mainly for final8tile.c
+[LONGFUNC]  1 Long Function(s), longest is 123 lines
+[LINELEN] Line too long ? Characters = 102 void copynumber(char number[HEIGHT][WIDTH], char final[SCREEN_ROWS][SCREEN_COLS], int colus, int rows)
+Part 1 = 50 (/70)
+NCurses = 8 (/10)
+Part 3 = 6 (/10)
+Extension = 6 (/10)
+Initial Mark = 63
+Final Mark = 70
+[FINALCOMMENT] Code too repetitive in explore(). The font data could be #included. Nice overall!
